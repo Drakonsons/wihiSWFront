@@ -1,0 +1,40 @@
+<div>
+  <label for="searchInput">Recherche :</label>
+  <input type="text" id="searchInput" [(ngModel)]="searchQuery" />
+  <button (click)="searchSpecies()">Rechercher</button>
+</div>
+
+<div *ngIf="speciesData">
+  <h2>Species</h2>
+  <ul>
+    <li *ngFor="let species of speciesData.results">
+      <h3>{{ species.name }}</h3>
+      <p><strong>Classification:</strong> {{ species.classification }}</p>
+      <p><strong>Designation:</strong> {{ species.designation }}</p>
+      <p><strong>Average Height:</strong> {{ species.average_height }}</p>
+      <p><strong>Average Lifespan:</strong> {{ species.average_lifespan }}</p>
+      <p><strong>Eye Colors:</strong> {{ species.eye_colors }}</p>
+      <p><strong>Hair Colors:</strong> {{ species.hair_colors }}</p>
+      <p><strong>Skin Colors:</strong> {{ species.skin_colors }}</p>
+      <p><strong>Language:</strong> {{ species.language }}</p>
+      <p>
+        <strong>Homeworld:</strong>
+        <a href="{{ species.homeworld }}">{{ species.homeworld }}</a>
+      </p>
+
+      <p><strong>People:</strong></p>
+      <ul>
+        <li *ngFor="let personUrl of species.people">
+          <a href="{{ personUrl }}">{{ personUrl }}</a>
+        </li>
+      </ul>
+
+      <p><strong>Films:</strong></p>
+      <ul>
+        <li *ngFor="let filmUrl of species.films">
+          <a href="{{ filmUrl }}">{{ filmUrl }}</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>

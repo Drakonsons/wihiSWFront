@@ -1,0 +1,40 @@
+<div>
+  <label for="searchInput">Recherche :</label>
+  <input type="text" id="searchInput" [(ngModel)]="searchQuery" />
+  <button (click)="searchVehicles()">Rechercher</button>
+</div>
+
+<div *ngIf="VehiclesData">
+  <h2>Vehicles</h2>
+  <ul>
+    <li *ngFor="let vehicle of VehiclesData.results">
+      <h3>{{ vehicle.name }}</h3>
+      <p><strong>Model:</strong> {{ vehicle.model }}</p>
+      <p><strong>Vehicle Class:</strong> {{ vehicle.vehicle_class }}</p>
+      <p><strong>Manufacturer:</strong> {{ vehicle.manufacturer }}</p>
+      <p><strong>Length:</strong> {{ vehicle.length }}</p>
+      <p><strong>Cost in Credits:</strong> {{ vehicle.cost_in_credits }}</p>
+      <p><strong>Crew:</strong> {{ vehicle.crew }}</p>
+      <p><strong>Passengers:</strong> {{ vehicle.passengers }}</p>
+      <p>
+        <strong>Max Atmosphering Speed:</strong>
+        {{ vehicle.max_atmosphering_speed }}
+      </p>
+      <p><strong>Cargo Capacity:</strong> {{ vehicle.cargo_capacity }}</p>
+
+      <p><strong>Films:</strong></p>
+      <ul>
+        <li *ngFor="let filmUrl of vehicle.films">
+          <a href="{{ filmUrl }}">{{ filmUrl }}</a>
+        </li>
+      </ul>
+
+      <p><strong>Pilots:</strong></p>
+      <ul>
+        <li *ngFor="let pilotUrl of vehicle.pilots">
+          <a href="{{ pilotUrl }}">{{ pilotUrl }}</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
