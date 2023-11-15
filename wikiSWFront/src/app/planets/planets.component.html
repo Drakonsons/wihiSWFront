@@ -1,13 +1,22 @@
 <div>
   <label for="searchInput">Recherche :</label>
-  <input type="text" id="searchInput" [(ngModel)]="searchQuery" />
-  <button (click)="searchPlanets()">Rechercher</button>
+  <input
+    type="text"
+    id="searchInput"
+    [(ngModel)]="searchQuery"
+    class="search-input"
+  />
+  <button (click)="searchPlanets()" class="search-button">Rechercher</button>
 </div>
 
 <div *ngIf="planetsData">
   <h2>Planets</h2>
-  <ul>
-    <li *ngFor="let planet of planetsData.results">
+  <div class="cards">
+    <div
+      *ngFor="let planet of planetsData.results; let i = index"
+      class="card"
+      [ngClass]="{ 'expanded-card': expandedCardIndex === i }"
+    >
       <h3>{{ planet.name }}</h3>
       <p><strong>Diameter:</strong> {{ planet.diameter }}</p>
       <p><strong>Rotation Period:</strong> {{ planet.rotation_period }}</p>
@@ -18,19 +27,22 @@
       <p><strong>Terrain:</strong> {{ planet.terrain }}</p>
       <p><strong>Surface Water:</strong> {{ planet.surface_water }}</p>
 
-      <p><strong>Residents:</strong></p>
-      <ul>
-        <li *ngFor="let residentUrl of planet.residents">
-          <a href="{{ residentUrl }}">{{ residentUrl }}</a>
-        </li>
-      </ul>
+      <button (click)="toggleCard(i)">Toggle Card</button>
+      <div class="expanded-content" [ngClass]="{ expanded: planet.expanded }">
+        <p><strong>Residents:</strong></p>
+        <ul>
+          <li *ngFor="let residentUrl of planet.residents">
+            <a href="{{ residentUrl }}">{{ residentUrl }}</a>
+          </li>
+        </ul>
 
-      <p><strong>Films:</strong></p>
-      <ul>
-        <li *ngFor="let filmUrl of planet.films">
-          <a href="{{ filmUrl }}">{{ filmUrl }}</a>
-        </li>
-      </ul>
-    </li>
-  </ul>
+        <p><strong>Films:</strong></p>
+        <ul>
+          <li *ngFor="let filmUrl of planet.films">
+            <a href="{{ filmUrl }}">{{ filmUrl }}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>

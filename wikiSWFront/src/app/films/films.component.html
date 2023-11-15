@@ -11,11 +11,11 @@
 
 <div *ngIf="filmsData">
   <h2>Films</h2>
-  <div class="film-cards">
+  <div class="cards">
     <div>
       <div
         *ngFor="let film of filmsData.results; let i = index"
-        class="film-card"
+        class="card"
         [ngClass]="{ 'expanded-card': expandedCardIndex === i }"
       >
         <h3>{{ film.title }}</h3>

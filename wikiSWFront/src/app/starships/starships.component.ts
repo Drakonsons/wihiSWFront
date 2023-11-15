@@ -9,6 +9,7 @@ import { ApiService } from '../service/api.service';
 export class StarshipsComponent implements OnInit {
   starshipsData: any;
   searchQuery: string = '';
+  expandedCardIndex: number | null = null;
 
   constructor(private apiService: ApiService) {}
 
@@ -20,9 +21,22 @@ export class StarshipsComponent implements OnInit {
     this.loadStarships(this.searchQuery);
   }
 
+  toggleCard(index: number) {
+    this.starshipsData.results[index].expanded =
+      !this.starshipsData.results[index].expanded;
+
+    this.expandedCardIndex = this.starshipsData.results[index].expanded
+      ? index
+      : null;
+  }
+
   private loadStarships(searchQuery: string | null = null) {
     this.apiService.getStarships(searchQuery).subscribe((data) => {
       this.starshipsData = data;
+
+      this.starshipsData.results.forEach((starships: { expanded: boolean }) => {
+        starships.expanded = false;
+      });
     });
   }
 }

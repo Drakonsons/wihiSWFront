@@ -11,7 +11,10 @@ import { StarshipsComponent } from './starships/starships.component';
 import { VehiclesComponent } from './vehicles/vehicles.component';
 import { SpeciesComponent } from './species/species.component';
 import { PlanetsComponent } from './planets/planets.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomePageComponent } from './home-page/home-page.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [{ path: 'films', component: FilmsComponent }];
 
@@ -24,8 +27,17 @@ const routes: Routes = [{ path: 'films', component: FilmsComponent }];
     VehiclesComponent,
     SpeciesComponent,
     PlanetsComponent,
+    HomePageComponent,
+    RegisterComponent,
+    LoginComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

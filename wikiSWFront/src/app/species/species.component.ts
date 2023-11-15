@@ -9,6 +9,7 @@ import { ApiService } from '../service/api.service';
 export class SpeciesComponent implements OnInit {
   speciesData: any;
   searchQuery: string = '';
+  expandedCardIndex: number | null = null;
 
   constructor(private apiService: ApiService) {}
 
@@ -20,9 +21,22 @@ export class SpeciesComponent implements OnInit {
     this.loadSpecies(this.searchQuery);
   }
 
+  toggleCard(index: number) {
+    this.speciesData.results[index].expanded =
+      !this.speciesData.results[index].expanded;
+
+    this.expandedCardIndex = this.speciesData.results[index].expanded
+      ? index
+      : null;
+  }
+
   private loadSpecies(searchQuery: string | null = null) {
     this.apiService.getSpecies(searchQuery).subscribe((data) => {
       this.speciesData = data;
+
+      this.speciesData.results.forEach((species: { expanded: boolean }) => {
+        species.expanded = false;
+      });
     });
   }
 }
