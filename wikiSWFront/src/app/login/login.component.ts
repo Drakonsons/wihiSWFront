@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
+  password!: string;
 
   constructor(
     private fb: FormBuilder,
@@ -25,24 +26,27 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    const { username, password } = this.loginForm.value;
-
-    if (!this.loginForm.valid) {
+    if (this.loginForm.invalid) {
       return;
     }
 
+    const { username, password } = this.loginForm.value;
+
     this.userService.login(username, password).subscribe(
-      (response) => {
-        if (response.success) {
-          this.router.navigate(['http://localhost:4200/films']);
+      (response: any) => {
+        if (response.token) {
+          this.router.navigate(['/films']);
         } else {
-          alert('Invalid username or password');
+          alert("Nom d'utilisateur ou mot de passe incorrect");
         }
       },
       (error: any) => {
-        alert('Login failed. Please try again later.');
+        alert('Échec de la connexion. Veuillez réessayer plus tard.');
       }
     );
-    console.log(this.loginForm.value);
+  }
+
+  redirectToRegister() {
+    this.router.navigate(['/register']);
   }
 }

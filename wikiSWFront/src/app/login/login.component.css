@@ -1,0 +1,44 @@
+body {
+  background-color: #000;
+  color: #fff;
+}
+
+.form-container {
+  background-color: #111;
+  border: 2px solid #ffa500;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+label {
+  color: #ffa500;
+}
+
+button {
+  background-color: #ffa500;
+  color: #000;
+  border: 2px solid #ffa500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+  background-color: #000;
+  color: #ffa500;
+}
+
+p-divider {
+  color: #ffa500;
+  border-top: 2px solid #ffa500;
+}
+
+#signup-button {
+  background-color: #0f9d58;
+  color: #fff;
+  border: 2px solid #0f9d58;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#signup-button:hover {
+  background-color: #ffa500;
+  color: #000;
+}

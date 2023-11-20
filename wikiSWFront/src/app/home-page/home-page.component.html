@@ -1,10 +1,19 @@
-<nav>
-  <a routerLink="/films">Films</a>
-  <a routerLink="/people">People</a>
-  <a routerLink="/starships">Starships</a>
-  <a routerLink="/vehicles">Vehicles</a>
-  <a routerLink="/species">Species</a>
-  <a routerLink="/planets">Planets</a>
-  <a routerLink="/login">Login</a>
-  <a routerLink="/register">Register</a>
-</nav>
+<div class="menu flex flex-wrap justify-content-center gap-2" [align]="'right'">
+  <p-sidebar [(visible)]="sidebarVisible2" position="right">
+    <a routerLink="/films">Films</a>
+    <a routerLink="/people">People</a>
+    <a routerLink="/starships">Starships</a>
+    <a routerLink="/vehicles">Vehicles</a>
+    <a routerLink="/species">Species</a>
+    <a routerLink="/planets">Planets</a>
+    <a routerLink="/login">Login</a>
+    <a routerLink="/register">Register</a>
+  </p-sidebar>
+
+  <p-button
+    type="button"
+    class="mr-2"
+    (click)="sidebarVisible2 = true"
+    icon="pi pi-arrow-left"
+  ></p-button>
+</div>

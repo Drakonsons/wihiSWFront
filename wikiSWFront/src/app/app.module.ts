@@ -13,8 +13,14 @@ import { SpeciesComponent } from './species/species.component';
 import { PlanetsComponent } from './planets/planets.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomePageComponent } from './home-page/home-page.component';
-import { RegisterComponent } from './register/register.component';
+import { RegisterComponent } from './register/RegisterComponent';
 import { LoginComponent } from './login/login.component';
+
+import { ButtonModule } from 'primeng/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PasswordModule } from 'primeng/password';
+import { DividerModule } from 'primeng/divider';
+import { SidebarModule } from 'primeng/sidebar';
 
 const routes: Routes = [{ path: 'films', component: FilmsComponent }];
 
@@ -37,6 +43,11 @@ const routes: Routes = [{ path: 'films', component: FilmsComponent }];
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    ButtonModule,
+    BrowserAnimationsModule,
+    PasswordModule,
+    DividerModule,
+    SidebarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

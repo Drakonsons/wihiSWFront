@@ -32,6 +32,6 @@ export class UserService {
 
   login(username: string, password: string): Observable<any> {
     const loginData = { username, password };
-    return this.http.post('http://localhost:8080/users/login', loginData);
+    return this.http.post('http://localhost:8080/auth/login', loginData);
   }
 }

@@ -1,21 +1,56 @@
-<form [formGroup]="loginForm" (ngSubmit)="login()">
-  <div class="form-group">
-    <label for="username">Username</label>
-    <input
-      type="text"
-      formControlName="username"
-      placeholder="Username"
-      class="form-control"
-    />
+<div class="flex flex-column md:flex-row" [align]="'center'">
+  <div
+    class="w-full md:w-5 flex flex-column align-items-center justify-content-center gap-3 py-5"
+  >
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <div
+        class="flex flex-wrap justify-content-center align-items-center gap-2"
+      >
+        <label class="w-6rem">Username</label>
+        <input
+          formControlName="username"
+          id="username"
+          type="text"
+          class="w-12rem"
+        />
+      </div>
+      <div
+        class="flex flex-wrap justify-content-center align-items-center gap-2"
+      >
+        <label class="w-6rem">Password</label>
+        <input
+          formControlName="password"
+          id="password"
+          type="password"
+          class="w-12rem"
+        />
+      </div>
+      <button
+        pButton
+        type="submit"
+        label="Login"
+        icon="pi pi-user"
+        styleClass="w-10rem mx-auto"
+      ></button>
+    </form>
   </div>
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input
-      type="password"
-      formControlName="password"
-      placeholder="Password"
-      class="form-control"
-    />
+  <div class="w-full md:w-2 flex align-items-center justify-content-center">
+    <p-divider
+      layout="horizontal"
+      styleClass="flex md:hidden"
+      [align]="'center'"
+      ><b>OR</b></p-divider
+    >
   </div>
-  <button type="submit" class="btn btn-primary">Login</button>
-</form>
+  <div
+    class="w-full md:w-5 flex align-items-center justify-content-center py-5"
+  >
+    <button
+      pButton
+      label="Sign Up"
+      icon="pi pi-user-plus"
+      styleClass="p-button-success w-10rem"
+      (click)="redirectToRegister()"
+    ></button>
+  </div>
+</div>

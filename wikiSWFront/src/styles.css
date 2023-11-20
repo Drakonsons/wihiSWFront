@@ -1,3 +1,7 @@
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+
 body {
   background-size: cover;
   background-position: center;
@@ -11,10 +15,6 @@ body {
   margin: 20px;
 }
 
-.search-container {
-  margin-top: 1rem;
-}
-
 label {
   font-size: 18px;
   color: #ffa500;
@@ -24,8 +24,8 @@ label {
 
 input {
   padding: 12px;
-  font-size: 16px;
-  width: 300px;
+  font-size: 24px;
+  width: 100%;
   margin-bottom: 15px;
   border: 1px solid #555;
 }
@@ -144,7 +144,6 @@ button::before {
   }
 }
 
-/* Desktop Styles */
 @media (min-width: 768px) {
   body {
     background-size: contain;
@@ -206,7 +205,6 @@ button::before {
   width: 300px;
   margin: 0.5rem;
   border: 1px solid #555;
-  color: #fff;
 }
 
 .search-button {

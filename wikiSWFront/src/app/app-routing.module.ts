@@ -6,7 +6,7 @@ import { StarshipsComponent } from './starships/starships.component';
 import { VehiclesComponent } from './vehicles/vehicles.component';
 import { SpeciesComponent } from './species/species.component';
 import { PlanetsComponent } from './planets/planets.component';
-import { RegisterComponent } from './register/register.component';
+import { RegisterComponent } from './register/RegisterComponent';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [

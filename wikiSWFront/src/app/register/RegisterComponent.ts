@@ -10,6 +10,9 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
   registerForm!: FormGroup;
+  username!: string;
+  email!: string;
+  password!: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -19,10 +22,11 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
-      username: ['', [Validators.required, Validators.minLength(4)]],
+      username: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
+    console.log(this.registerForm);
   }
 
   onSubmit(): void {
@@ -33,7 +37,7 @@ export class RegisterComponent implements OnInit {
     const userData = this.registerForm.value;
     console.log(userData);
 
-    this.http.post('http://localhost:8080/users/register', userData).subscribe(
+    this.http.post('http://localhost:8080/auth/register', userData).subscribe(
       () => {
         this.router.navigate(['/login']);
       },
