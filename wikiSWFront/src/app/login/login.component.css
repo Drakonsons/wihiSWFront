@@ -42,3 +42,10 @@ p-divider {
   background-color: #ffa500;
   color: #000;
 }
+
+@media screen and (min-width: 600px) {
+  .flex-column {
+    width: 60%;
+    margin: auto;
+  }
+}

@@ -24,32 +24,37 @@ div {
 }
 
 button {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  background-color: #ffa500;
+  color: #000;
+  border: 2px solid #ffa500;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #000;
+  color: #ffa500;
+}
+
+input {
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  width: -moz-available;
+}
+
+.p-inputtext {
+  width: 100%;
+}
+
+.p-password {
+  width: 100%;
 }
 
 @media screen and (min-width: 568px) {
-  body {
-    align-items: initial;
-  }
-
   form {
     margin: auto;
     max-width: 600px;
     margin-top: 3rem;
     display: flex;
     flex-direction: column;
-  }
-
-  p-impttext {
-    width: 100%;
   }
 }

@@ -21,6 +21,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PasswordModule } from 'primeng/password';
 import { DividerModule } from 'primeng/divider';
 import { SidebarModule } from 'primeng/sidebar';
+import { HomeLinkComponent } from './home-link/home-link.component';
+import { AcceuilPageComponent } from './acceuil-page/acceuil-page.component';
 
 const routes: Routes = [{ path: 'films', component: FilmsComponent }];
 
@@ -36,6 +38,8 @@ const routes: Routes = [{ path: 'films', component: FilmsComponent }];
     HomePageComponent,
     RegisterComponent,
     LoginComponent,
+    HomeLinkComponent,
+    AcceuilPageComponent,
   ],
   imports: [
     BrowserModule,

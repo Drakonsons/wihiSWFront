@@ -8,6 +8,7 @@ import { SpeciesComponent } from './species/species.component';
 import { PlanetsComponent } from './planets/planets.component';
 import { RegisterComponent } from './register/RegisterComponent';
 import { LoginComponent } from './login/login.component';
+import { AcceuilPageComponent } from './acceuil-page/acceuil-page.component';
 
 const routes: Routes = [
   { path: 'films', component: FilmsComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'planets', component: PlanetsComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'home', component: AcceuilPageComponent },
 ];
 
 @NgModule({

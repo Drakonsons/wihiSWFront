@@ -157,7 +157,6 @@ button::before {
   }
 
   input {
-    width: calc(30% - 10px);
     box-sizing: border-box;
     margin-bottom: 15px;
   }

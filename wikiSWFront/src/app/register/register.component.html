@@ -22,23 +22,23 @@
   <div *ngIf="registerForm.get('email')!.hasError('email')">
     L'email doit être une adresse email valide.
   </div>
-
-  <p-password formControlName="password">
-    <ng-template pTemplate="header">
-      <h6>Choisissez un mot de passe</h6>
-    </ng-template>
-    <ng-template pTemplate="footer">
-      <p-divider></p-divider>
-      <p class="mt-2">Suggestions</p>
-      <ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
-        <li>Au moins une minuscule</li>
-        <li>Au moins une majuscule</li>
-        <li>Au moins un chiffre</li>
-        <li>Minimum 6 caractères</li>
-      </ul>
-    </ng-template>
-  </p-password>
-
+  <div class="pswInput">
+    <p-password class="pswInput" formControlName="password">
+      <ng-template pTemplate="header">
+        <h6>Choisissez un mot de passe</h6>
+      </ng-template>
+      <ng-template pTemplate="footer">
+        <p-divider></p-divider>
+        <p class="mt-2">Suggestions</p>
+        <ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
+          <li>Au moins une minuscule</li>
+          <li>Au moins une majuscule</li>
+          <li>Au moins un chiffre</li>
+          <li>Minimum 6 caractères</li>
+        </ul>
+      </ng-template>
+    </p-password>
+  </div>
   <div *ngIf="registerForm.get('password')!.hasError('required')">
     Le mot de passe est requis.
   </div>

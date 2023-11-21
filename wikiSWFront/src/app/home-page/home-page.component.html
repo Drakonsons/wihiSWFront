@@ -1,13 +1,6 @@
 <div class="menu flex flex-wrap justify-content-center gap-2" [align]="'right'">
   <p-sidebar [(visible)]="sidebarVisible2" position="right">
-    <a routerLink="/films">Films</a>
-    <a routerLink="/people">People</a>
-    <a routerLink="/starships">Starships</a>
-    <a routerLink="/vehicles">Vehicles</a>
-    <a routerLink="/species">Species</a>
-    <a routerLink="/planets">Planets</a>
-    <a routerLink="/login">Login</a>
-    <a routerLink="/register">Register</a>
+    <app-home-link class="menuSide"></app-home-link>
   </p-sidebar>
 
   <p-button
@@ -17,3 +10,7 @@
     icon="pi pi-arrow-left"
   ></p-button>
 </div>
+
+<nav class="navBarre">
+  <app-home-link></app-home-link>
+</nav>
