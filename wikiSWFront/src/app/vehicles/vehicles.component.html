@@ -1,0 +1,62 @@
+<div *ngIf="isLoading">
+  <app-loader></app-loader>
+</div>
+
+<div class="search-container" *ngIf="!isLoading">
+  <label for="searchInput" class="search-label">Recherche :</label>
+  <input
+    type="text"
+    id="searchInput"
+    [(ngModel)]="searchQuery"
+    class="search-input"
+  />
+  <button (click)="searchVehicles()" class="search-button">Rechercher</button>
+</div>
+
+<div *ngIf="VehiclesData">
+  <h2>Vehicles</h2>
+  <div class="cards">
+    <div class="widthCard">
+      <div
+        *ngFor="let vehicle of VehiclesData.results; let i = index"
+        class="card"
+        [ngClass]="{ 'expanded-card': expandedCardIndex === i }"
+      >
+        <h3>{{ vehicle.name }}</h3>
+        <p><strong>Model:</strong> {{ vehicle.model }}</p>
+        <p><strong>Vehicle Class:</strong> {{ vehicle.vehicle_class }}</p>
+        <p><strong>Manufacturer:</strong> {{ vehicle.manufacturer }}</p>
+        <p><strong>Length:</strong> {{ vehicle.length }}</p>
+        <p><strong>Cost in Credits:</strong> {{ vehicle.cost_in_credits }}</p>
+        <p><strong>Crew:</strong> {{ vehicle.crew }}</p>
+        <p><strong>Passengers:</strong> {{ vehicle.passengers }}</p>
+        <p>
+          <strong>Max Atmosphering Speed:</strong>
+          {{ vehicle.max_atmosphering_speed }}
+        </p>
+        <p><strong>Cargo Capacity:</strong> {{ vehicle.cargo_capacity }}</p>
+
+        <button (click)="toggleCard(i)">Toggle Card</button>
+
+        <div
+          class="expanded-content"
+          [ngClass]="{ expanded: vehicle.expanded }"
+        >
+          <p><strong>Films:</strong></p>
+          <ul>
+            <li *ngFor="let filmUrl of vehicle.films">
+              <a href="{{ filmUrl }}">{{ filmUrl }}</a>
+            </li>
+          </ul>
+
+          <p><strong>Pilots:</strong></p>
+          <ul>
+            <li *ngFor="let pilotUrl of vehicle.pilots">
+              <a href="{{ pilotUrl }}">{{ pilotUrl }}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

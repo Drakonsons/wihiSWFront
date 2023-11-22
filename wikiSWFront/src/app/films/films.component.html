@@ -1,0 +1,75 @@
+<div *ngIf="isLoading">
+  <app-loader></app-loader>
+</div>
+
+<div class="search-container" *ngIf="!isLoading">
+  <label for="searchInput" class="search-label">Recherche :</label>
+  <input
+    type="text"
+    id="searchInput"
+    [(ngModel)]="searchQuery"
+    class="search-input"
+  />
+  <button (click)="searchFilms()" class="search-button">Rechercher</button>
+</div>
+
+<div *ngIf="filmsData">
+  <h2>Films</h2>
+  <div class="cards">
+    <div>
+      <div
+        *ngFor="let film of filmsData.results; let i = index"
+        class="card"
+        [ngClass]="{ 'expanded-card': expandedCardIndex === i }"
+      >
+        <h3>{{ film.title }}</h3>
+        <p><strong>Episode ID:</strong> {{ film.episode_id }}</p>
+        <p><strong>Director:</strong> {{ film.director }}</p>
+        <p><strong>Producer:</strong> {{ film.producer }}</p>
+        <p><strong>Release Date:</strong> {{ film.release_date }}</p>
+        <p><strong>Opening Crawl:</strong> {{ film.opening_crawl }}</p>
+
+        <button (click)="toggleCard(i)">Toggle Card</button>
+
+        <div class="expanded-content" [ngClass]="{ expanded: film.expanded }">
+          <p><strong>Species:</strong></p>
+          <ul>
+            <li *ngFor="let speciesUrl of film.species">
+              <a href="{{ speciesUrl }}">{{ speciesUrl }}</a>
+            </li>
+          </ul>
+
+          <p><strong>Starships:</strong></p>
+          <ul>
+            <li *ngFor="let starshipUrl of film.starships">
+              <a href="{{ starshipUrl }}">{{ starshipUrl }}</a>
+            </li>
+          </ul>
+
+          <p><strong>Vehicles:</strong></p>
+          <ul>
+            <li *ngFor="let vehicleUrl of film.vehicles">
+              <a href="{{ vehicleUrl }}">{{ vehicleUrl }}</a>
+            </li>
+          </ul>
+
+          <p><strong>Characters:</strong></p>
+          <ul>
+            <li *ngFor="let characterUrl of film.characters">
+              <a href="{{ characterUrl }}">{{ characterUrl }}</a>
+            </li>
+          </ul>
+
+          <p><strong>Planets:</strong></p>
+          <ul>
+            <li *ngFor="let planetUrl of film.planets">
+              <a href="{{ planetUrl }}">{{ planetUrl }}</a>
+            </li>
+          </ul>
+
+          <button (click)="toggleCard(i)">Toggle Card</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

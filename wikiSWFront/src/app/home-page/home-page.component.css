@@ -1,0 +1,53 @@
+body {
+  color: #fff;
+  font-family: "Arial", sans-serif;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.menuSide {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  align-items: center;
+}
+
+.menu p-sidebar {
+  color: #fff;
+}
+
+.menu p-button {
+  color: #fff;
+}
+
+@media screen and (max-width: 540px) {
+  .navBarre {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 540px) {
+  .menu {
+    display: none;
+  }
+  .navBarre {
+    display: flex;
+    background-color: #ffbf00;
+    padding: 10px;
+    margin-bottom: 2rem;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .navBarre a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+}

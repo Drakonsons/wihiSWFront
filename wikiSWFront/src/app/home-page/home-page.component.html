@@ -1,0 +1,16 @@
+<div class="menu flex flex-wrap justify-content-center gap-2" [align]="'right'">
+  <p-sidebar [(visible)]="sidebarVisible2" position="right">
+    <app-home-link class="menuSide"></app-home-link>
+  </p-sidebar>
+
+  <p-button
+    type="button"
+    class="mr-2"
+    (click)="sidebarVisible2 = true"
+    icon="pi pi-arrow-left"
+  ></p-button>
+</div>
+
+<nav class="navBarre">
+  <app-home-link></app-home-link>
+</nav>

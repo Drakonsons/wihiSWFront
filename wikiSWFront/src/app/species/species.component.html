@@ -1,0 +1,62 @@
+<div *ngIf="isLoading">
+  <app-loader></app-loader>
+</div>
+
+<div class="search-container" *ngIf="!isLoading">
+  <label for="searchInput" class="search-label">Recherche :</label>
+  <input
+    type="text"
+    id="searchInput"
+    [(ngModel)]="searchQuery"
+    class="search-input"
+  />
+  <button (click)="searchSpecies()" class="search-button">Rechercher</button>
+</div>
+
+<div *ngIf="speciesData">
+  <h2>Species</h2>
+  <div class="cards">
+    <div class="widthCard">
+      <div
+        *ngFor="let species of speciesData.results; let i = index"
+        class="card"
+        [ngClass]="{ 'expanded-card': expandedCardIndex === i }"
+      >
+        <h3>{{ species.name }}</h3>
+        <p><strong>Classification:</strong> {{ species.classification }}</p>
+        <p><strong>Designation:</strong> {{ species.designation }}</p>
+        <p><strong>Average Height:</strong> {{ species.average_height }}</p>
+        <p><strong>Average Lifespan:</strong> {{ species.average_lifespan }}</p>
+        <p><strong>Eye Colors:</strong> {{ species.eye_colors }}</p>
+        <p><strong>Hair Colors:</strong> {{ species.hair_colors }}</p>
+        <p><strong>Skin Colors:</strong> {{ species.skin_colors }}</p>
+        <p><strong>Language:</strong> {{ species.language }}</p>
+        <p>
+          <strong>Homeworld:</strong>
+          <a href="{{ species.homeworld }}">{{ species.homeworld }}</a>
+        </p>
+
+        <button (click)="toggleCard(i)">Toggle Card</button>
+
+        <div
+          class="expanded-content"
+          [ngClass]="{ expanded: species.expanded }"
+        >
+          <p><strong>People:</strong></p>
+          <ul>
+            <li *ngFor="let personUrl of species.people">
+              <a href="{{ personUrl }}">{{ personUrl }}</a>
+            </li>
+          </ul>
+
+          <p><strong>Films:</strong></p>
+          <ul>
+            <li *ngFor="let filmUrl of species.films">
+              <a href="{{ filmUrl }}">{{ filmUrl }}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
