@@ -1,4 +1,8 @@
-<div class="search-container">
+<div *ngIf="isLoading">
+  <app-loader></app-loader>
+</div>
+
+<div class="search-container" *ngIf="!isLoading">
   <label for="searchInput" class="search-label">Recherche :</label>
   <input
     type="text"

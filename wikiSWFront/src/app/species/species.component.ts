@@ -10,6 +10,7 @@ export class SpeciesComponent implements OnInit {
   speciesData: any;
   searchQuery: string = '';
   expandedCardIndex: number | null = null;
+  isLoading: boolean = true;
 
   constructor(private apiService: ApiService) {}
 
@@ -34,9 +35,12 @@ export class SpeciesComponent implements OnInit {
     this.apiService.getSpecies(searchQuery).subscribe((data) => {
       this.speciesData = data;
 
-      this.speciesData.results.forEach((species: { expanded: boolean }) => {
-        species.expanded = false;
-      });
+      if (this.speciesData.results) {
+        this.speciesData.results.forEach((species: { expanded: boolean }) => {
+          species.expanded = false;
+        });
+      }
+      this.isLoading = false;
     });
   }
 }

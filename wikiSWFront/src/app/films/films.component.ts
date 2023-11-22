@@ -10,6 +10,7 @@ export class FilmsComponent implements OnInit {
   filmsData: any;
   searchQuery: string = '';
   expandedCardIndex: number | null = null;
+  isLoading: boolean = true;
 
   constructor(private apiService: ApiService) {}
 
@@ -34,9 +35,12 @@ export class FilmsComponent implements OnInit {
     this.apiService.getFilms(searchQuery).subscribe((data) => {
       this.filmsData = data;
 
-      this.filmsData.results.forEach((film: { expanded: boolean }) => {
-        film.expanded = false;
-      });
+      if (this.filmsData.results) {
+        this.filmsData.results.forEach((film: { expanded: boolean }) => {
+          film.expanded = false;
+        });
+      }
+      this.isLoading = false;
     });
   }
 }

@@ -10,6 +10,7 @@ export class PlanetsComponent implements OnInit {
   planetsData: any;
   searchQuery: string = '';
   expandedCardIndex: number | null = null;
+  isLoading: boolean = true;
 
   constructor(private apiService: ApiService) {}
 
@@ -34,9 +35,12 @@ export class PlanetsComponent implements OnInit {
     this.apiService.getPlanets(searchQuery).subscribe((data) => {
       this.planetsData = data;
 
-      this.planetsData.results.forEach((planets: { expanded: boolean }) => {
-        planets.expanded = false;
-      });
+      if (this.planetsData.results) {
+        this.planetsData.results.forEach((planets: { expanded: boolean }) => {
+          planets.expanded = false;
+        });
+      }
+      this.isLoading = false;
     });
   }
 }

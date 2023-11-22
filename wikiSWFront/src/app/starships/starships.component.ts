@@ -10,6 +10,7 @@ export class StarshipsComponent implements OnInit {
   starshipsData: any;
   searchQuery: string = '';
   expandedCardIndex: number | null = null;
+  isLoading: boolean = true;
 
   constructor(private apiService: ApiService) {}
 
@@ -34,9 +35,14 @@ export class StarshipsComponent implements OnInit {
     this.apiService.getStarships(searchQuery).subscribe((data) => {
       this.starshipsData = data;
 
-      this.starshipsData.results.forEach((starships: { expanded: boolean }) => {
-        starships.expanded = false;
-      });
+      if (this.starshipsData.results) {
+        this.starshipsData.results.forEach(
+          (starships: { expanded: boolean }) => {
+            starships.expanded = false;
+          }
+        );
+      }
+      this.isLoading = false;
     });
   }
 }

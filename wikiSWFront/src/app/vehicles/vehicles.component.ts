@@ -10,6 +10,7 @@ export class VehiclesComponent implements OnInit {
   VehiclesData: any;
   searchQuery: string = '';
   expandedCardIndex: number | null = null;
+  isLoading: boolean = true;
 
   constructor(private apiService: ApiService) {}
 
@@ -34,9 +35,12 @@ export class VehiclesComponent implements OnInit {
     this.apiService.getVehicles(searchQuery).subscribe((data) => {
       this.VehiclesData = data;
 
-      this.VehiclesData.results.forEach((vehicles: { expanded: boolean }) => {
-        vehicles.expanded = false;
-      });
+      if (this.VehiclesData.results) {
+        this.VehiclesData.results.forEach((vehicles: { expanded: boolean }) => {
+          vehicles.expanded = false;
+        });
+      }
+      this.isLoading = false;
     });
   }
 }

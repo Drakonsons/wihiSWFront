@@ -10,6 +10,7 @@ export class PeopleComponent implements OnInit {
   peopleData: any;
   searchQuery: string = '';
   expandedCardIndex: number | null = null;
+  isLoading: boolean = true;
 
   constructor(private apiService: ApiService) {}
 
@@ -34,9 +35,12 @@ export class PeopleComponent implements OnInit {
     this.apiService.getPeople(searchQuery).subscribe((data) => {
       this.peopleData = data;
 
-      this.peopleData.results.forEach((people: { expanded: boolean }) => {
-        people.expanded = false;
-      });
+      if (this.peopleData.results) {
+        this.peopleData.results.forEach((people: { expanded: boolean }) => {
+          people.expanded = false;
+        });
+      }
+      this.isLoading = false;
     });
   }
 }

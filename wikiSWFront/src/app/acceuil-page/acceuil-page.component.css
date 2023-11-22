@@ -28,7 +28,7 @@ img {
   height: 300px;
   border: 2px solid #ffd700;
   border-radius: 10px;
-  margin: 20px;
+
   transition: transform 0.3s ease-in-out;
 }
 
@@ -40,10 +40,12 @@ p {
   margin-top: 5px;
   color: #ffd700;
   font-weight: bold;
+  text-align: center;
 }
 
 @media (min-width: 600px) {
   div {
     justify-content: space-around;
+    align-items: center;
   }
 }

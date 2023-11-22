@@ -23,6 +23,7 @@ import { DividerModule } from 'primeng/divider';
 import { SidebarModule } from 'primeng/sidebar';
 import { HomeLinkComponent } from './home-link/home-link.component';
 import { AcceuilPageComponent } from './acceuil-page/acceuil-page.component';
+import { LoaderComponent } from './loader/loader.component';
 
 const routes: Routes = [{ path: 'films', component: FilmsComponent }];
 
@@ -40,6 +41,7 @@ const routes: Routes = [{ path: 'films', component: FilmsComponent }];
     LoginComponent,
     HomeLinkComponent,
     AcceuilPageComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,
